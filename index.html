@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Material Design for Bootstrap</title>
+    <!-- MDB icon -->
+    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <!-- Google Fonts Roboto -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+    />
+    <!-- MDB -->
+    <link rel="stylesheet" href="css/mdb.min.css" />
+  </head>
+  <body>
+    
+
+    <!-- MDB -->
+    <script type="text/javascript" src="js/mdb.umd.min.js"></script>
+    <!-- Custom scripts -->
+    <script type="text/javascript">
+
+      // API calling
+
+      let queryUrl = "https://api.weatherapi.com/v1/current.json?key=d41890f45b184fa29e8144519232012&q=Bangladesh&aqi=yes";
+
+      fetch(queryUrl).then((response) => response.json()).then((data) => {
+
+
+        // Weather main data 
+
+        let main = data.current;
+        let temp_c = data.current.temp_c;
+        let temp_f = data.current.temp_c;
+        let temp_condition = data.current.condition.text;
+        let temp_conditionIcon = data.current.condition.icon;
+
+        // document.write(JSON.stringify(main));
+
+        document.write("Tempratere in celcuis: "+temp_c);
+        document.write("<br>");
+        document.write("Temprature in Farenhite: "+temp_f);
+        document.write("<br>");
+        document.write("Condition: "+temp_condition);
+        document.write("<br>");
+        document.write("<img src='"+temp_conditionIcon+"'></img>");
+
+
+      });
+
+
+    </script>
+  </body>
+</html>
